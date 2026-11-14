@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f7fb" />
+    <meta
+      name="description"
+      content="Learn something new every day with Quizly, your home for fun online quizzes."
+    />
+    <title>Quizly — Online Quiz Application</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#" aria-label="Quizly home">
+          <span class="brand-mark" aria-hidden="true">Q</span>
+          <span>quizly<span class="brand-period">.</span></span>
+        </a>
+
+        <p class="nav-label">MENU</p>
+        <nav class="main-nav">
+          <a class="nav-link active" href="#home" data-page="home">
+            <span class="nav-icon" aria-hidden="true">⌂</span> Overview
+          </a>
+          <a class="nav-link" href="#explore" data-page="explore">
+            <span class="nav-icon" aria-hidden="true">▦</span> Explore quizzes
+          </a>
+          <a class="nav-link" href="#activity" data-page="activity">
+            <span class="nav-icon" aria-hidden="true">◷</span> My activity
+          </a>
+        </nav>
+
+        <div class="sidebar-card">
+          <div class="sidebar-card-icon" aria-hidden="true">✦</div>
+          <strong>Keep your streak alive!</strong>
+          <p>A little learning every day goes a long way.</p>
+          <button class="sidebar-streak-button" type="button" data-action="daily-quiz">
+            Take a daily quiz <span aria-hidden="true">→</span>
+          </button>
+        </div>
+
+        <div class="sidebar-footer">
+          <span class="avatar avatar-small">A</span>
+          <span class="profile-copy"><strong>Alex Morgan</strong><small>Quiz enthusiast</small></span>
+          <span class="footer-dots" aria-hidden="true">···</span>
+        </div>
+      </aside>
+
+      <main class="main-content" id="main-content">
+        <header class="topbar">
+          <div class="breadcrumb"><span>Pages</span><span class="breadcrumb-slash">/</span><strong id="breadcrumb-current">Overview</strong></div>
+          <div class="topbar-actions">
+            <label class="search-box">
+              <span aria-hidden="true">⌕</span>
+              <input id="quiz-search" type="search" placeholder="Search quizzes..." aria-label="Search quizzes" />
+              <kbd>/</kbd>
+            </label>
+            <button class="icon-button notification-button" type="button" aria-label="Notifications">
+              ♧<span class="notification-dot"></span>
+            </button>
+            <button class="avatar avatar-top" type="button" aria-label="Alex Morgan profile">A</button>
+          </div>
+        </header>
+
+        <section class="page-view" id="dashboard-view">
+          <section class="welcome-row">
+            <div>
+              <p class="eyebrow"><span class="sparkle" aria-hidden="true">✦</span> YOUR LEARNING SPACE</p>
+              <h1>Good morning, ADITHYA V J <span aria-hidden="true">✌️</span></h1>
+              <p class="welcome-subtitle">Ready to learn something new today?</p>
+            </div>
+            <div class="date-pill"><span aria-hidden="true">▦</span> <span id="today-date"></span></div>
+          </section>
+
+          <section class="hero-banner">
+            <div class="hero-copy">
+              <span class="hero-kicker">YOUR DAILY DOSE OF KNOWLEDGE</span>
+              <h2>Make today<br />a little smarter.</h2>
+              <p>Pick a topic, take a quiz, and see just how much you know.</p>
+              <button class="button button-light" type="button" data-action="daily-quiz">
+                Start a quick quiz <span aria-hidden="true">→</span>
+              </button>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <div class="orbit orbit-one"></div>
+              <div class="orbit orbit-two"></div>
+              <span class="floating-shape shape-star">✦</span>
+              <span class="floating-shape shape-plus">＋</span>
+              <span class="floating-shape shape-dot">●</span>
+              <div class="hero-quiz-card">
+                <span class="mini-tag">QUESTION 04 / 10</span>
+                <span class="mini-question">How many colors<br />are in a rainbow?</span>
+                <div class="mini-answer mini-answer-selected">Seven <span>✓</span></div>
+                <div class="mini-answer">Six</div>
+                <div class="mini-card-bottom"><span>◷ &nbsp;00:12</span><span>↗</span></div>
+              </div>
+            </div>
+            <div class="hero-decoration" aria-hidden="true"></div>
+          </section>
+
+          <section class="stats-grid" aria-label="Your quiz statistics">
+            <article class="stat-card">
+              <div class="stat-icon stat-purple" aria-hidden="true">▤</div>
+              <div class="stat-copy"><span>Quizzes completed</span><strong id="stat-completed">0</strong><small><span class="stat-neutral">Keep it going!</span></small></div>
+              <span class="stat-sparkline sparkline-purple" aria-hidden="true">▁▂▃▂▄▅▆</span>
+            </article>
+            <article class="stat-card">
+              <div class="stat-icon stat-orange" aria-hidden="true">♧</div>
+              <div class="stat-copy"><span>Average score</span><strong id="stat-average">—<small class="stat-suffix">%</small></strong><small><span class="stat-neutral">Across all your quizzes</span></small></div>
+              <span class="stat-sparkline sparkline-orange" aria-hidden="true">▁▂▂▄▃▅▆</span>
+            </article>
+            <article class="stat-card">
+              <div class="stat-icon stat-green" aria-hidden="true">✦</div>
+              <div class="stat-copy"><span>Day streak</span><strong id="stat-streak">0 <small class="stat-suffix">days</small></strong><small><span class="stat-neutral">Start a streak today</span></small></div>
+              <span class="stat-sparkline sparkline-green" aria-hidden="true">▁▂▃▄▅▅▆</span>
+            </article>
+          </section>
+
+          <section class="section-block" id="explore-section">
+            <div class="section-heading">
+              <div><p class="eyebrow">FIND YOUR NEXT CHALLENGE</p><h2>Explore by category</h2></div>
+              <button class="text-button" type="button" data-action="view-all">View all quizzes <span aria-hidden="true">→</span></button>
+            </div>
+            <div class="category-grid" id="category-grid"></div>
+          </section>
+
+          <section class="section-block bottom-section" id="activity-section">
+            <div class="section-heading">
+              <div><p class="eyebrow">YOUR PROGRESS</p><h2>Recent activity</h2></div>
+              <button class="text-button" type="button" data-action="view-activity">See all activity <span aria-hidden="true">→</span></button>
+            </div>
+            <div class="activity-card" id="activity-list"></div>
+          </section>
+          <footer class="page-footer">Made for curious minds <span aria-hidden="true">✦</span></footer>
+        </section>
+
+        <section class="quiz-view hidden" id="quiz-view" aria-live="polite"></section>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
